@@ -1,0 +1,79 @@
+:root{
+  --dot-color-1: rgba(12, 208, 243, 0.35);
+  --dot-color-2: rgba(255,255,255,.18);
+  --bg-gradient: linear-gradient(180deg,#01030a,#10028f 60%, #1c117e);
+}
+
+.bg-dots{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none; /* não bloqueia cliques */
+  background:
+    /* Camada 1: pontos maiores e mais raros */
+    radial-gradient(circle 2px at 20px 20px, var(--dot-color-1) 98%, transparent 100%) 0 0/ 60px 90px,
+    /* Camada 2: pontos médios */
+    radial-gradient(circle 1.6px at 30px 10px, var(--dot-color-2) 98%, transparent 100%) 0 0/ 45px 70px,
+    /* Camada 3: pontos menores e densos */
+    radial-gradient(circle 1.2px at 15px 25px, var(--dot-color-2) 98%, transparent 100%) 0 0/ 35px 55px,
+    /* Gradiente de fundo por trás dos pontos */
+    var(--bg-gradient);
+  animation:
+    fall-slow 18s linear infinite,
+    fall-mid  12s linear infinite,
+    fall-fast  8s linear infinite;
+  /* Damos durações diferentes com multiple animations alterando apenas background-position via steps (ver keyframes) */
+}
+
+/* Truque: cada animação desloca *apenas* uma camada usando múltiplos backgrounds */
+@keyframes fall-slow{
+  0%   { background-position: 
+          0    0,             /* camada 1 */
+          0    0,             /* camada 2 (fixa aqui) */
+          0    0,             /* camada 3 (fixa aqui) */
+          0    0; }           /* gradiente */
+  100% { background-position: 
+          0  900px,           /* move só a 1ª (parallax) */
+          0    0,
+          0    0,
+          0    0; }
+}
+
+@keyframes fall-mid{
+  0%   { background-position:
+          0    0,
+          0    0,             /* move a 2ª */
+          0    0,
+          0    0; }
+  100% { background-position:
+          0    0,
+          0  700px,
+          0    0,
+          0    0; }
+}
+
+@keyframes fall-fast{
+  0%   { background-position:
+          0    0,
+          0    0,
+          0    0,             /* move a 3ª */
+          0    0; }
+  100% { background-position:
+          0    0,
+          0    0,
+          0  550px,
+          0    0; }
+}
+
+/* Opcional: efeito de “loop” mais natural em telas altas */
+@media (min-height: 900px){
+  @keyframes fall-slow{
+    100% { background-position: 0 1200px, 0 0, 0 0, 0 0; }
+  }
+  @keyframes fall-mid{
+    100% { background-position: 0 0, 0 900px, 0 0, 0 0; }
+  }
+  @keyframes fall-fast{
+    100% { background-position: 0 0, 0 0, 0 700px, 0 0; }
+  }
+}
