@@ -24,12 +24,14 @@ app.post("/send", (req, res) => {
     },
   });
 
-  let mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: `Nova mensagem de ${nome}`,
-    text: mensagem,
-  };
+let mailOptions = {
+  from: process.env.EMAIL_USER,      
+  to: process.env.EMAIL_USER,        
+  replyTo: email,                    
+  subject: `Nova mensagem de ${nome}`,
+  text: `Nome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`,
+};
+
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
