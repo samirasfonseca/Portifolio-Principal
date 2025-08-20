@@ -310,7 +310,7 @@
             </div>
                 <div class="contato__container">
                         
-                    <form action="https://portifolio-principal-jade.vercel.app//send" method="post">
+                    <form id="form-contato">
                     <h3>Entre em contato</h3>
 
                     <input type="text" name="nome" placeholder="Digite seu nome" required>
@@ -341,6 +341,23 @@
 
         </main>
     </header>
+    <script>
+  const form = document.getElementById("form-contato");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+    alert(result.message);
+  });
+</script>
     <script src="main.js"></script>
 </body>
 </html>
