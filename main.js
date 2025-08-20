@@ -25,7 +25,7 @@ app.post("/send", (req, res) => {
   });
 
   let mailOptions = {
-    from: email,
+    from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: `Nova mensagem de ${nome}`,
     text: mensagem,
