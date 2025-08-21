@@ -167,6 +167,7 @@
   align-items: center;
   justify-content: center;
   margin: 2rem;
+  flex-wrap: wrap;
 }
 
 .Projetos__conteudos {
@@ -183,6 +184,7 @@
   width: 18rem;
   height: 27rem;
   border: #008b8b73 0.2px solid;
+  margin-top: 1rem;
 }
 
 .Projetos__conteudos h3 {
