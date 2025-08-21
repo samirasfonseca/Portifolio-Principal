@@ -6,7 +6,9 @@ Este é meu portfólio como desenvolvedora front-end, criado para apresentar meu
 
 ## 🔗 Acesse o site publicado
 
-👉 [Visualizar no GitHub Pages](https://samirasfonseca.github.io/Portfólio-Principal)
+👉 [Visualizar no GitHub Pages](https://samirasfonseca.github.io/Portifolio-Principal/)
+
+👉 [Visualizar no Vercel](https://portifolio-principal-jade.vercel.app/)
 
 ---
 
