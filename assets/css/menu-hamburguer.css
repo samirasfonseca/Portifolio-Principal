@@ -1,39 +1,34 @@
-.navbar {
-  display: none;
-  flex-direction: column;
-  padding: 1rem;
-  font-size: 4rem;
-}
-
+/* 🔹 Botão hamburguer */
 .menu-toggle {
-  font-size: 3rem;        
-  background: none;       
-  border: none;          
-  color: #36688a;        
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #36688a;
   cursor: pointer;
-  margin: 0.3rem;         
-  position: absolute;    
+  margin: 0.3rem;
+  position: absolute;
   top: 1rem;
-  right: 1rem;           
-  z-index: 1000;         
+  right: 1rem;
+  z-index: 1000;
 }
 
-
-.navbar.active {
-  display: flex;
-}
-
-/* Desktop */
+/* 🔹 Estilo para telas grandes */
 @media (min-width: 769px) {
   .navbar {
-    display: flex !important; 
+    display: flex !important;
     flex-direction: row;
-    background: none;
-    padding: 0;
-  
+    align-items: center;
+    justify-content: space-between;
+    background-color: #008b8b2a;
+    padding: 2rem;
   }
 
   .menu-toggle {
-    display: none; 
+    display: none; /* esconde o hambúrguer no desktop */
+  }
+
+  .navbar__links {
+    display: flex;
+    gap: 1rem;
   }
 }

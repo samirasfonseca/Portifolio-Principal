@@ -13,19 +13,25 @@
 </head>
 <body>
         <header>
-            <div class="bg-dots"></div>
+        <div class="bg-dots"></div>
 
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <nav class="navbar" id="navbar">
-                <h2>Samira Santos</h2>
-                <div class="navbar__links">
-                <a href="#SobreMim">Sobre mim</a>
-                <a href="#Projetos">Projetos</a>
-                <a href="#Habilidades">Habilidades</a>
-                <a href="#Contato">Contato</a>
-                </div>
-            </nav>
+        <!-- Botão hamburguer -->
+        <button class="menu-toggle">☰</button>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <h2>Samira Santos</h2>
+            <div class="navbar__links">
+            <a href="#SobreMim">Sobre mim</a>
+            <a href="#Projetos">Projetos</a>
+            <a href="#Habilidades">Habilidades</a>
+            <a href="#Contato">Contato</a>
+            </div>
+        </nav>
         </header>
+
+
+
 
         <main>
             <section class="hero">
@@ -383,23 +389,7 @@
 
         </main>
     </header>
-    <script>
-  const form = document.getElementById("form-contato");
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
 
-    const res = await fetch("/api/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    const result = await res.json();
-    alert(result.message);
-  });
-</script>
     <script src="main.js"></script>
 </body>
 </html>
