@@ -16,19 +16,19 @@
 @media (min-width: 769px) {
   .navbar {
     display: flex !important;
-    flex-direction: row;
+    flex-direction: row; /* Navbar em linha no desktop */
     align-items: center;
     justify-content: space-between;
     background-color: #008b8b2a;
     padding: 2rem;
   }
 
-  .menu-toggle {
-    display: none; /* esconde o hambúrguer no desktop */
+  .navbar__links {
+    flex-direction: row; /* Links lado a lado no desktop */
+    gap: 1rem;
   }
 
-  .navbar__links {
-    display: flex;
-    gap: 1rem;
+  .menu-toggle {
+    display: none; /* Esconde o hamburguer no desktop */
   }
 }
