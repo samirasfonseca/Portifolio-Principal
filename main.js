@@ -1,11 +1,10 @@
 /*------------------------------- Menu Haburguer -----------------------------------------*/
-const hamburger = document.querySelector('.menu-toggle');
-    const navbar = document.querySelector('.navbar');
+const toggleBtn = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
 
-    hamburger.addEventListener('click', () => {
-      navbar.classList.toggle('active');
-      console.log("Clique no hambúrguer!"); // debug
-    });
+toggleBtn.addEventListener('click', () => {
+  navbar.classList.toggle('active');
+});
 
 /*------------------------------- Mover o Carrossel Projetos -----------------------------------------*/
 
