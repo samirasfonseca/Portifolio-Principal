@@ -26,6 +26,7 @@
     height: 27rem;
     border-radius: 10%;
     margin-right: 2rem;
+    object-fit: cover;
 }
 
 .hero__social {
@@ -47,7 +48,7 @@
 
 .hero__social a {
     padding: 1rem 2rem 1rem 2rem;
-    background-color: #062a5396;
+    background-color: #043063bd;
     border: #36688a solid 1px;
     width: 18rem;
     height: 4rem;
@@ -57,10 +58,41 @@
     font-weight: 700;
     color: #fff;
     margin-top: 2rem;
+    box-shadow: #7ec5f5 0.5px 0.5px 10px;
 }
 
 .hero__social a:hover {
     box-shadow: #7ec5f5 4px 4px 20px;
+}
+
+
+/* Mobile - telas até 768px */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;     
+    padding: 2rem;             
+    text-align: center;         
+  }
+
+  .hero__foto img {
+    width: 80%;                 
+    height: auto;               
+    margin: 4rem auto 2rem auto;  
+  }
+
+  .hero__social h1 {
+    font-size: 2rem;  
+    text-align: center;        
+  }
+
+  .hero__social h4 {
+    font-size: 1.1rem;          
+  }
+
+  .hero__social a {
+    width: 100%;               
+    max-width: 18rem;           
+  }
 }
 
 /*----------------- SobreMim -----------------*/
@@ -104,6 +136,31 @@
     margin: 1rem 0 1rem 2rem;
 }
 
+/* Mobile - telas até 768px */
+@media (max-width: 768px) {
+.SobreMim {
+    flex-direction: column;     
+    padding: 2rem;             
+    text-align: center;         
+  }
+
+.SobreMim__foto img {
+    width: 80%;                 
+    height: auto;               
+    margin: 4rem auto 2rem auto;  
+  }
+
+.SobreMim h2 {
+    font-size: 1.8rem;            
+  }
+
+ .SobreMim p {
+    font-size: 1.3rem;          
+  }
+
+}
+
+
 /*----------------- Habilidades ---------------------*/
 .habilidades {
   text-align: center;
@@ -127,7 +184,7 @@
 .habilidades__track {
   display: flex;
   gap: 3rem;
-  animation: scroll 25s linear infinite;
+  animation: scroll 20s linear infinite;
   white-space: nowrap;
 }
 
@@ -161,90 +218,87 @@
 }
 
 /*------------------ Projetos ---------------------*/
+
 .Projetos {
-  padding: 1rem;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.Projetos__wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem;
-  flex-wrap: wrap;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+  scroll-behavior: smooth;
 }
 
 .Projetos__conteudos {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 1.5rem;
-  padding: 1rem;
-  gap: 0.5rem;
-  background-color: #062a53ad;
+  flex-direction: column; 
+  justify-content: space-between; 
+  flex: 0 0 30%;
+  min-height: 350px; 
+  background: #062a53b9;
+  padding: 2rem;
   border-radius: 1rem;
-  color: #fff;
-  width: 18rem;
-  height: 27rem;
-  border: #008b8b73 0.2px solid;
-  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: #008b8b 4px 4px  10px;
+  border: #008b8b solid 1px;
 }
 
 .Projetos__conteudos h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-}
-
-.Projetos__conteudos p {
-  text-align: center;
 }
 
 .Projetos__conteudos__tecnologias {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-  padding: 1rem;
-}
-
-.Projetos__conteudos__tecnologias p {
-  margin-left: 0.5rem;
-  padding: 0.7rem;
-  font-size: 1rem;
-  background-color: #066fe73b;
-  height: 2rem;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-}
-
-.Projetos__conteudos img {
-  width: 18rem;
-  height: 12rem;
-  border-radius: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .Projetos__conteudos a {
-  display: flex;                
-  align-items: center;          
-  justify-content: center;     
-  width: 14rem;                
-  height: 3rem;                 
-  border-radius: 5px;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #043268;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
   margin-top: auto; 
-  border-radius: 5px;
-  background-color: #066fe73b;
-  font-size: 1.1rem;
+  box-shadow: #008b8b 2px 2px 10px;
+  border: #008b8b solid 1px;
   text-align: center;
-  padding: 1rem;
-  bottom: 1px;
+}
+/* Botões de navegação */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(2, 6, 43, 0.87);
+  color: white;
+  border: #008b8b solid 1px;
+  box-shadow: #008b8b 1px 1px 8px;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
 }
 
-.Projetos__conteudos a:hover {
-  box-shadow: #9fc5df 4px 4px 5px;
-  background-color: #36688a;
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
 }
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
 
 /*------------------ Contato ---------------------*/
 
@@ -297,12 +351,6 @@
   margin-left: 4rem;
 }
 
-
-.Contato h3 {
-   font-size: 2.5rem;
-  text-align: center;
-}
-
 .Contato form {
   display: flex;
   align-items: center;
@@ -316,6 +364,11 @@
   gap: 2rem;
   padding: 1rem;
   border: #000 solid 1px;
+}
+
+.Contato h3 {
+   font-size: 2.5rem;
+  text-align: center;
 }
 
 .Contato form input {
@@ -352,4 +405,101 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+}
+
+/* Mobile - telas até 768px */
+@media (max-width: 768px) {
+.Contato  {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column;
+  margin: 1rem;   
+  padding: 2rem;             
+  text-align: center;    
+  gap: 1rem;    
+  }
+
+.Contato  h2 {
+    font-size: 2rem;            
+  }
+
+.Contato p {
+    font-size: 1.1rem;   
+    text-align: center;   
+    flex-wrap: wrap;    
+  }
+
+  .Contato a i {
+    font-size: 1.8rem;
+
+  }
+
+.contato__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d1d7f0;
+  width: 23rem;
+  height: 21.5rem;
+  border-radius: 0.3rem;
+  margin: 1rem;
+}
+
+.Contato form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #062a53;
+  width: 22rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  margin: 1rem 1rem 0 1rem;
+  gap: 1rem;
+  padding: 1rem;
+  border: #000 solid 1px;
+}
+
+.Contato h3 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.Contato form input {
+  background-color: #d2d4f0;
+  color: #000;
+  font-weight: 700;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+
+.Contato textarea {
+  padding: 1rem;
+  background-color: #d2d4f0;
+  color: #000;
+  width: 20rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.Contato button {
+  background-color: #066fe73b;
+  color: #FFF;
+  width: 20rem;
+  height: 2.7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
 }

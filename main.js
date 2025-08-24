@@ -47,3 +47,22 @@ let mailOptions = {
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+/*------------------------------- Menu Hmaburguer -----------------------------------------*/
+  function toggleMenu() {
+    // só funciona se a largura da tela for menor que 768px
+    if (window.innerWidth <= 768) {
+      const menu = document.getElementById("navbar").classList.toggle("active");
+    }
+  }
+
+/*------------------------------- Mover o Carrossel Projetos -----------------------------------------*/
+
+  function scrollCarousel(direction) {
+    const carousel = document.getElementById("carousel");
+    const cardWidth = carousel.querySelector(".Projetos__conteudos").offsetWidth + 32; // largura + gap
+    carousel.scrollBy({
+      left: direction * cardWidth,
+      behavior: "smooth"
+    });
+  }

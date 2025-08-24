@@ -7,22 +7,26 @@
    <link rel="stylesheet" href="assets/css/main.css">
    <link rel="stylesheet" href="assets/css/navbar.css">
    <link rel="stylesheet" href="assets/css/bacground.css">
+   <link rel="stylesheet" href="assets/css/menu-hamburguer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <title>Portifolio - Samira</title>
 </head>
 <body>
-    <div class="bg-dots"></div>
-    <header>
-        
-        <nav class="navbar">
-            <h2>Samira Santos</h2>
-            <div class="navbar__links">
+        <header>
+            <div class="bg-dots"></div>
+
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav class="navbar" id="navbar">
+                <h2>Samira Santos</h2>
+                <div class="navbar__links">
                 <a href="#SobreMim">Sobre mim</a>
                 <a href="#Projetos">Projetos</a>
                 <a href="#Habilidades">Habilidades</a>
                 <a href="#Contato">Contato</a>
-            </div>
-        </nav>
+                </div>
+            </nav>
+        </header>
+
         <main>
             <section class="hero">
                 <div class="hero__foto">
@@ -233,6 +237,10 @@
 
 
             <section  id="Projetos" class="Projetos">
+
+                <button class="carousel-btn prev" onclick="scrollCarousel(-1)">&#10094;</button>
+
+                <div class="Projetos__wrapper" id="carousel">
                   <div class="Projetos__conteudos">
                     <h3>Site de Receitas da Vó</h3>
                     <p>Site de receitas responsivo, com foco em usabilidade. 
@@ -265,6 +273,20 @@
                         <a href="https://samirasfonseca.github.io/Pizzaria-do-Bairro-LandingPage/">Demonstração Online</a>
                     
                 </div>
+                 <div class="Projetos__conteudos">
+                    <h3>MinimalWear</h3>
+                    <p>site de moda minimalista.O layout é moderno, 
+                        responsivo e pensado para oferecer a melhor experiência ao usuário.</p>
+                    <div class="Projetos__conteudos__tecnologias">
+                        <p>HTML</p>
+                        <p>CSS </p>
+                        <p>JAVASCRIPT</p>
+                    </div>
+                    
+                        <a href="https://samirasfonseca.github.io/MinimalWear-Site-de-Roupas/">Demonstração Online</a>
+                    
+                </div>
+
                 <div class="Projetos__conteudos">
                     
                     <h3>Move-se</h3>
@@ -312,7 +334,10 @@
                         <a href="https://samirasfonseca.github.io/DevIniciante-LandingPage/">Demonstração Online</a>
                 
                 </div>
-                
+                </div>
+
+                <button class="carousel-btn next" onclick="scrollCarousel(1)">&#10095;</button>
+
             </section>
 
             <section  id="Contato" class="Contato">
