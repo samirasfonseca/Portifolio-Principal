@@ -1,38 +1,32 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const { nome, email, mensagem } = req.body;
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Método não permitido" });
+  }
 
-  
+  const { nome, email, mensagem } = req.body;
+
+  try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.mail.yahoo.com",
-      port: 465,
-      secure: true,
+      service: "gmail", // pode ser Gmail, Outlook etc.
       auth: {
-        user: process.env.EMAIL_USER, 
-        pass: process.env.EMAIL_PASS, 
+        user: process.env.EMAIL_USER, // vai ficar salvo nas variáveis de ambiente
+        pass: process.env.EMAIL_PASS, // senha de app
       },
     });
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,   
-      to: process.env.EMAIL_USER,     
-      replyTo: email,                 
+    await transporter.sendMail({
+      from: email,
+      to: process.env.EMAIL_USER,
       subject: `Nova mensagem de ${nome}`,
-      text: `Nome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`,
-    };
+      text: mensagem,
+    });
 
-    try {
-      await transporter.sendMail(mailOptions);
-      return res.status(200).json({ message: "Mensagem enviada com sucesso! 🚀" });
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ message: "Erro ao enviar mensagem 😢" });
-    }
-  } else {
-    res.setHeader("Allow", ["POST"]);
-    return res.status(405).json({ message: `Método ${req.method} não permitido` });
+    res.status(200).json({ message: "Email enviado com sucesso!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erro ao enviar", error });
   }
 }
 
