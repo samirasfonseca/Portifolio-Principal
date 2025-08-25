@@ -21,25 +21,22 @@ toggleBtn.addEventListener('click', () => {
 document.getElementById("form-contato").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const data = {
+  const formData = {
     nome: e.target.nome.value,
     email: e.target.email.value,
-    mensagem: e.target.mensagem.value
+    mensagem: e.target.mensagem.value,
   };
 
   const res = await fetch("/api/send", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(formData),
   });
 
-  if (res.ok) {
-    alert("Mensagem enviada com sucesso!");
-    e.target.reset();
-  } else {
-    alert("Erro ao enviar mensagem!");
-  }
+  const data = await res.json();
+  alert(data.message || "Erro ao enviar");
 });
+
 
 
 

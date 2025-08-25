@@ -2,32 +2,33 @@ import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Método não permitido" });
+    return res.status(405).json({ error: "Método não permitido" });
   }
 
   const { nome, email, mensagem } = req.body;
 
   try {
+    // Configuração do transporter (use variáveis de ambiente no Vercel!)
     const transporter = nodemailer.createTransport({
-      service: "gmail", // pode ser Gmail, Outlook etc.
+      service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // vai ficar salvo nas variáveis de ambiente
-        pass: process.env.EMAIL_PASS, // senha de app
+        user: process.env.EMAIL_USER, // seu email
+        pass: process.env.EMAIL_PASS  // sua senha de app do Gmail
       },
     });
 
     await transporter.sendMail({
       from: email,
-      to: process.env.EMAIL_USER,
-      subject: `Nova mensagem de ${nome}`,
+      to: process.env.EMAIL_USER, // você recebe aqui
+      subject: `Novo contato de ${nome}`,
       text: mensagem,
     });
 
-    res.status(200).json({ message: "Email enviado com sucesso!" });
+    return res.status(200).json({ success: true, message: "Email enviado!" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Erro ao enviar", error });
+    return res.status(500).json({ success: false, error: error.message });
   }
 }
+
 
 
