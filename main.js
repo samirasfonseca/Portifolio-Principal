@@ -18,24 +18,7 @@ toggleBtn.addEventListener('click', () => {
   }
 
 /*------------------------------- Formulario de Contato -----------------------------------------*/
-document.getElementById("form-contato").addEventListener("submit", async (e) => {
-  e.preventDefault();
 
-  const formData = {
-    nome: e.target.nome.value,
-    email: e.target.email.value,
-    mensagem: e.target.mensagem.value,
-  };
-
-  const res = await fetch("/api/send", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  });
-
-  const data = await res.json();
-  alert(data.message || "Erro ao enviar");
-});
 
 
 
