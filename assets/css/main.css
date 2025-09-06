@@ -247,6 +247,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   box-shadow: #008b8b 4px 4px  10px;
   border: #008b8b solid 1px;
+
 }
 
 .Projetos__conteudos h3 {
@@ -257,7 +258,8 @@
 .Projetos__conteudos__tecnologias {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  /* margin: 1rem 0 1rem 0; */
+  margin-top: auto;
 }
 
 .Projetos__conteudos a {
