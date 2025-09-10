@@ -454,8 +454,6 @@
 
 
 
-
-
 .contato__container {
   display: flex;
   align-items: center;
@@ -537,7 +535,7 @@
   }
 
 .Contato  h2 {
-    font-size: 2rem;            
+    font-size: 1.6rem;            
   }
 
 .Contato p {
@@ -618,4 +616,104 @@
   cursor: pointer;
 }
 
+/* Lista de contatos padrão (desktop) */
+.Contato ul {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.Contato ul li a {
+  display: flex;
+  align-items: center; 
+  gap: 0.5rem;        
+  text-decoration: none;
+  width: 20rem;
+  height: 80px;
+  padding-left: 20px;
+  background: #035252b9;
+  color: #fff;
+  box-shadow: -20px 20px 10px rgba(0,0,0,0.5);
+  position: relative;
+  transition: 0.5s;
+  font-size: 1.3rem;
+  transform: none; 
+
+  }
+
+  .Contato a i {
+    font-size: 1.5rem;
+  }
+
+  .Contato ul li a span {
+    letter-spacing: 1px;
+  }
+}
+
+
+/* Media query para celulares pequenos */
+@media screen and (max-width: 480px) {
+  .Contato {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .Contato h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .Contato p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .Contato > div {
+    width: 100%; /* ocupa toda largura */
+    gap: 0.8rem;
+  }
+
+  /* Lista de contatos */
+  .Contato ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .Contato ul li a {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    transform: none;
+    box-shadow: -8px 8px 5px rgba(0,0,0,0.2);
+  }
+
+  .Contato a i {
+    font-size: 1.2rem;
+  }
+
+  .Contato ul li a span {
+    letter-spacing: 0.5px;
+  }
+
+  /* Formulário */
+  .contato__container form {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .contato__container input,
+  .contato__container textarea {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .contato__container button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
 }
